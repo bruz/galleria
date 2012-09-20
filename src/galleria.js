@@ -5351,6 +5351,26 @@ Galleria.on = function( type, callback ) {
     return Galleria;
 };
 
+/**
+
+    Unbind all Galleria events
+
+    @returns Galleria
+
+*/
+
+Galleria.off = function() {
+    // for existing instances
+    $.each( Galleria.get(), function(i, instance) {
+        instance._binds = [];
+    });
+
+    // for future instances
+    Galleria.on.binds = [];
+
+    return Galleria;
+};
+
 Galleria.on.binds = [];
 
 /**
